@@ -47,7 +47,7 @@ posts = [
 
 def index(request):
     return render(request, 'blog/index.html',
-                  {'posts': reversed(posts)})#2
+                  {'posts': reversed(posts)})
 
 
 def post_detail(request, id):
@@ -59,7 +59,8 @@ def post_detail(request, id):
 
 
 def category_posts(request, category_slug):
-    filtered_posts = [post for post in posts if post["category"] == category_slug]
+    filtered_posts = [post for post in posts if post["category"] ==
+                      category_slug]
     return render(request, 'blog/category.html',
                   {'category': category_slug,
                    'posts': filtered_posts})
